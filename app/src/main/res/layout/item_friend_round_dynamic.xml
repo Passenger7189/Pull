@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitesmoke"
+    android:orientation="vertical"
+    android:padding="5dip"
+    android:paddingBottom="20dip">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv_dynamicUserHeadImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:padding="2dp"
+                fresco:roundAsCircle="true" />
+
+            <TextView
+                android:id="@+id/tv_dynamicUserNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/sdv_dynamicUserHeadImage"
+                android:layout_margin="5dp"
+                android:layout_toRightOf="@+id/sdv_dynamicUserHeadImage"
+                android:gravity="center"
+                android:text="周杰伦"
+                android:textColor="#222"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_dynamicUserpublishTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sdv_dynamicUserHeadImage"
+                android:layout_margin="5dp"
+                android:layout_toRightOf="@+id/sdv_dynamicUserHeadImage"
+                android:gravity="center"
+                android:text="10月1号 00:30"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_moreAboutDynamic"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/icon_more_about_dynamic" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_dynamicContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="6"
+            android:padding="3dp"
+            android:text="哎呦！不错哦"
+            android:textColor="#222"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+    <!--    上面整个部分为发布的用户信息和发布的动态内容(文本)      -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--    转发内容，不是转发就GONE      -->
+        <TextView
+            android:id="@+id/tv_dynamicTransmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f0f0f0"
+            android:maxLines="4"
+            android:padding="3dp"
+            android:text="\@刘邦: 力拔山兮气盖世，时不利兮骓不逝，大风起兮云飞扬，安得广厦千万间，使我不得开心颜"
+            android:textColor="#444"
+            android:textSize="18sp" />
+
+        <!--    显示图片列数GridLayoutManager，
+        图片数/3==0；列数为图片数量，图片数/3!=0;列数为3列     -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_dynamicPicture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tv_userPublishAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/icon_dynamic_local"
+            android:gravity="left|center"
+            android:text="苏州"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/iv_dynamicThumbs"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/selector_thumbs" />
+
+        <ImageView
+            android:id="@+id/iv_dynamicComment"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/icon_comment" />
+
+        <ImageView
+            android:id="@+id/iv_dynamicTransmit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/icon_transmit" />
+
+    </LinearLayout>
+    <!--    可以在这里再加一个布局显示点赞数量与评论数量      -->
+
+    <!--    评论的ListView，谁 回复 谁:回复内容。用一个简单的ArrayAdapter就好-->
+    <ListView
+        android:id="@+id/lv_dynamicCommentContent"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#f1f1f1" />
+
+</LinearLayout>
